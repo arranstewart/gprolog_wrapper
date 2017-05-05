@@ -1,0 +1,8 @@
+
+c++ wrapper around the c API for gprolog.
+
+Build and run example with:
+
+      > make example
+      > ./example
+
