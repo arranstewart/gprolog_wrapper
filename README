@@ -6,3 +6,32 @@ Build and run example with:
       > make example
       > ./example
 
+Example use of wrapper API:
+
+      query q1;
+
+      q1.add( 
+        call { []() -> void {
+          const auto nil_at = mk_atom( nil {} );
+          cout << "try write nil" << endl;
+          int res = oneSoln {"write",{ mk_term(nil_at)}} (true);
+        }} 
+      ).add(
+        call { []() -> void {
+          int res;
+          const auto nil_at = mk_atom( nil {} );
+          oneSoln mycall("length", {
+            mk_term(nil_at), mk_term(variable{}) 
+          });
+          res = mycall(true);
+
+          oneSoln writeArg("write", { mycall.arg(1) } ); 
+          res = writeArg(true);
+
+        }}
+      );
+
+      program p {};
+      p.add(q1);
+      p();
+
