@@ -46,12 +46,13 @@ using std::vector;
 // GPROLOG_VERSION_1_3_0
 
 
-// wrappers around the C "types".
-// it's guaranteed (since they have no vtables) that a
+// wrappers around the C types. Gprolog just defines a lot of them as
+// ints or longs, so we wrap them in structs.
+// it's guaranteed (since the structs have no vtables) that a
 // pointer to them points to the same spot as the first member.
 //    It's *not* guaranteed that the struct as a whole is of the same
 // size (compilers are at liberty to add packing, for instane).
-//    So which does reinterpret_cast() between arrays of the two,
+//    So doing reinterpret_cast() between arrays of the two
 // is not at all guaranteed to work. (Tho it does, currently, for gcc
 // and clang.)
 
