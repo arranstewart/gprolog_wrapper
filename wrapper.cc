@@ -17,9 +17,9 @@ using std::vector;
 // set up #defines specifying the gprolog version you're using.
 // if 1.3.0 (used on ubuntu) we set up some #defines so current (1.4)
 // function names and types still work.
-#define GPROLOG_VERSION_1_3_0 
+//#define GPROLOG_VERSION_1_3_0 
 
-#ifdef GPROLOG_VERSION_1_3_0
+#ifndef Pl_Get_Choice_Counter
 
 #define PlBool                  Bool
 #define Pl_Start_Prolog         Start_Prolog
@@ -306,7 +306,8 @@ private:
   vector<query> queries;
 
   void begin() {
-    Pl_Start_Prolog(0, NULL);
+    extern int example_argc; extern char ** example_argv;
+    Pl_Start_Prolog(example_argc, example_argv);
     hasBegun = true; 
   }
 
