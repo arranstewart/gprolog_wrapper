@@ -35,3 +35,19 @@ Example use of wrapper API:
       p.add(q1);
       p();
 
+
+Changes in the 2020 version
+===================================
+
+The preview was modified to fit versions gprolog 1.3.0 as well as the
+versions 1.4.4 and 1.4.5.
+
+It was tested on
+1) Debian 8 with gprolog 1.3.0 present on the system (original Debian)
+
+2) Fedora 23 with gprolog 1.4.4 present on the system (original Fedora)
+
+3) Debian 8 with self-built gprolog 1.4.5
+
+In all 3 cases the following works:
+make example; ./example
